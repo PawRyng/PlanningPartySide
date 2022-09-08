@@ -1,0 +1,195 @@
+.containerUserPanel {
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10% 0 5%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.containerUserPanel__Flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+.containerUserPanel__Flex h2 {
+  margin: 1%;
+}
+
+.containerUserPanel__Flex h3 {
+  margin-top: 1vh;
+  margin-left: 7%;
+}
+
+.containerUserPanel__Flex:nth-of-type(even) {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.containerSong {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 10% 10% 7%;
+}
+
+.containerSong__Form {
+  width: 80%;
+  min-width: 60px;
+  height: 20vh;
+  max-height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.containerSong__Form input {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.05);
+  padding-left: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.containerSong__Form input:focus {
+  outline: none;
+}
+
+.containerSong__Icon {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerListSong {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 1% 10% 5%;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.containerListSong .containerList {
+  width: 70%;
+  max-height: 0px;
+  -webkit-transition: max-height 1s ease-out;
+  -o-transition: max-height 1s ease-out;
+  transition: max-height 1s ease-out;
+  overflow: hidden;
+  border-bottom: 5px solid white;
+  border-radius: 5px;
+}
+
+.containerListSong .containerList--Active {
+  max-height: 500px;
+  -webkit-transition: max-height 1s ease-in;
+  -o-transition: max-height 1s ease-in;
+  transition: max-height 1s ease-in;
+}
+
+.containerListSong .containerList ul .element {
+  -webkit-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+}
+
+.containerListSong .containerList ul .element a {
+  -webkit-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+  text-decoration: none;
+  font-size: 10px;
+  color: black;
+}
+
+.containerListSong .containerList ul .element a li {
+  opacity: 0;
+  -webkit-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+}
+
+.containerListSong .containerList ul .element--Active a {
+  color: white;
+}
+
+.containerListSong .containerList ul .element--Active a li {
+  opacity: 1;
+  -webkit-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+}
+
+.containerListSong__Button {
+  width: 20%;
+  height: 25px;
+  position: relative;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+
+.containerListSong__Button--Active {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.containerListSong__Button img {
+  position: absolute;
+  top: -4px;
+  right: 0px;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+
+body {
+  background: -webkit-linear-gradient(273.6deg, #DEC4FC 0%, #91C6FC 100%) no-repeat;
+  background: -o-linear-gradient(273.6deg, #DEC4FC 0%, #91C6FC 100%) no-repeat;
+  background: linear-gradient(176.4deg, #DEC4FC 0%, #91C6FC 100%) no-repeat;
+  min-height: 100vh;
+}
+/*# sourceMappingURL=userPanel.css.map */

@@ -1,0 +1,138 @@
+.containerUserPanel{
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 10% 0 5%;
+    display: inline-flex;
+    &__Flex{
+        display: flex;
+       flex-direction: column;
+        width: 50%;
+        h2{
+            margin: 1%;
+
+        }
+        h3{
+            margin-top: 1vh;
+            margin-left: 7%;
+        }
+        &:nth-of-type(even){
+            justify-content: center;
+            align-items: flex-end;   
+        }
+    }
+}
+
+//Song
+.containerSong{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 10% 10% 7%;
+
+    &__Form{
+        width: 80%;
+        min-width: 60px;
+        height: 20vh;
+        max-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        input{
+            width: 80%;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            background: #FFFFFF;
+            box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.05);
+            padding-left: 15px;
+            box-sizing: border-box;
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+
+    &__Icon{
+        width: 20%;
+        display: flex;
+        justify-content: flex-start; //flex-end its in line with another icon 
+        align-items: center;
+    }
+}
+.containerListSong{
+    box-sizing: border-box;
+    padding: 0 1% 10% 5%;
+    // height: 25px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    .containerList{
+        width: 70%;
+        max-height: 0px;
+        transition: max-height 1s ease-out;
+        overflow: hidden;
+        border-bottom: 5px solid white;
+        border-radius: 5px;
+
+        &--Active{
+            max-height: 500px;
+            transition: max-height 1s ease-in;
+        }
+        ul{
+        .element{
+            
+                transition: opacity 3s ease-in;
+                a{
+                    transition: opacity 3s ease-in;
+                    li{
+                        opacity: 0;
+                        transition: opacity 3s ease-in;
+                    }
+                    text-decoration: none;
+                    font-size: 10px;
+                    color: black;
+                }
+                &--Active{
+                    a{
+                        color: white;
+                        li{
+                            opacity: 1;
+                            transition: opacity 3s ease-in;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    &__Button{
+        width: 20%;
+        height: 25px;
+        position: relative;
+        transition: 1s;
+        &--Active{
+            transform: rotate(45deg);
+        }
+        img{
+            position: absolute;
+            top:-4px;
+            right: 0px;
+            transition: 1s;
+           
+        }
+    }
+}
+
+
+
+
+
+
+
+
+body{
+    // overflow: hidden;
+    background: linear-gradient(176.4deg, #DEC4FC 0%, #91C6FC 100%) no-repeat;
+    min-height: 100vh;
+}

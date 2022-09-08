@@ -1,0 +1,126 @@
+@font-face {
+    font-family: Binkier;
+    src: url('../fonts/binker/Blinker-Regular.ttf');
+}
+
+$paddingIcon: 20px;
+
+
+
+.App {
+    font-family: sans-serif;
+
+    &__Bcg{
+        position: fixed;
+        z-index: -100;
+        width: 100vw;
+    }
+
+    &__Logo{
+        width: 50vw;
+        margin: 15vw 0;
+        max-width: 250px;
+    }
+
+    &__flex{
+        display: flex;
+        width: 100vw;
+        &--Logo{
+            justify-content: center;
+        }
+        &--Form{
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+    &__Imput{
+        padding: 5px;
+        font-size: 20px;
+        box-sizing: border-box;
+        width: 67vw;
+        max-width: 400px;
+        min-height: 40px;
+        border-radius: 67px;
+        border: none;
+        margin: 1vh;        
+        background-color: white;
+        padding-left: 50px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: Binkier;
+        &:focus{
+            outline:none;
+        }
+    }
+    &__ImputButtom {
+        font-family: Binkier;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 77px;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        height: 45px;
+        font-size: 18px;
+
+        &--Input{
+            margin-top: 8vh;
+            width: 67vw;
+            background-color: #6A74CF;
+            letter-spacing: 0.8px;
+            max-width: 300px;
+        }
+        &--Facebook{
+            max-width: 200px;
+            width: 40vw;
+            color: white;            
+            background-color: #35A6EF;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: Binkier;
+            letter-spacing: 1px;
+            img{
+                width: 18px;
+            }
+        }
+        
+
+    }
+
+    &__alert {
+        margin-top: 0.3vh;
+        font-size: 12px;
+        color: #F43C3C;
+        width: 67vw;
+        margin-left: 10px;
+
+        img{
+            margin-right: 5px;
+        }
+    }
+    &__containerJoin {
+        position: absolute;
+        bottom: 2vh;
+        width: 100vw;
+        font-family: Binkier;
+        text-align: center;
+    }
+}
+
+.container{
+    position: relative;
+    display: flex;
+
+    &>img{
+        position: absolute;
+        width: 22px;
+        top: 50%;
+        left: $paddingIcon;
+        transform: translateY(-50%);
+    }
+}
