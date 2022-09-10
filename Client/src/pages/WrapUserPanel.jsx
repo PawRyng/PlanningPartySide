@@ -36,6 +36,9 @@ const WrapUserPanel = () =>{
     {
         title: "Dawid Podsiadlo - Pastempomat",
         link: "https://www.youtube.com/",
+    },{
+        title: "Bass Astral x Igo + Krzysztof Zalewski - Would",
+        link: "https://www.youtube.com/",
     }
 ]
     useEffect( ()=>{     

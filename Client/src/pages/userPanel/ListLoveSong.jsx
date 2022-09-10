@@ -7,25 +7,24 @@ import { useNavigate } from "react-router-dom";
 const List = ({loveSong, plusIcon, removeIcon}) => {
     
     
-    const [flag, setFlag] = useState(false);
+    const [flag, setFlag] = useState(true);
     const navigate = useNavigate();
     
     const clickHendler = e =>{
         e.preventDefault();
         setFlag(!flag);
+        const containerListElement = document.querySelector(".containerList")
         document.querySelector(".containerListSong__Button").classList.toggle("containerListSong__Button--Active");
-        document.querySelector(".containerList").classList.toggle("containerList--Active");
-        setTimeout(()=>{
-            document.querySelector(".element").classList.toggle("element--Active");
-
-        }, 1000);
-        // for(let i = 1; i>=loveSong.length; i++){
-        //     setInterval(() =>{
-        //         document.querySelector(`ul`)[i].classList.toggle("Active");
-        //     }, 1000)
-        // }
-        var childNodes = document.getElementsByTagName('ul')[0].childNodes;
-        console.log(childNodes.length)
+        containerListElement.classList.toggle("containerList--Active");
+        var childNodesList = document.getElementsByTagName('ul')[0].childNodes;
+        flag ? containerListElement.style["max-height"] = `${100+(17 * childNodesList.length)}px` : containerListElement.style["max-height"] = `13px` 
+        
+        console.log(flag)
+        for(let i = 0; i <= childNodesList.length - 1; i++){
+            setTimeout(() =>{
+                childNodesList[i].classList.toggle("element--Active");
+            }, 500)
+        }
     }
 
     const items = loveSong.map((song, index) =>
@@ -43,7 +42,7 @@ const List = ({loveSong, plusIcon, removeIcon}) => {
         <div className="containerListSong">
             <div className="containerList">
                 <ul>
-                    {flag && items}
+                    {items}
                 </ul>
             </div>
             <div className="containerListSong__Button" >

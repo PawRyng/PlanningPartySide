@@ -118,11 +118,22 @@ db.once('open', function (){
                 
 
         }
-        if(req.body.typeSerch){
-
-        }
 
     });
+    app.post("/SongAdd", authorisatiomMid, async (req, res) => {
+        const {IdUser, Title, Link} = req.body;
+
+
+        User.findByIdAndUpdate(IdUser, {$push: {LoveSong: [{Title,Link}]}}, err => console.log(err))
+
+
+        res.json({status: Title})        
+    });
+
+
+
+
+
 
     
     app.post("/changeData", authorisatiomMid ,async (req, res) => {

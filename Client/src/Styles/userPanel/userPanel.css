@@ -113,7 +113,7 @@
 
 .containerListSong .containerList {
   width: 70%;
-  max-height: 0px;
+  max-height: 13px;
   -webkit-transition: max-height 1s ease-out;
   -o-transition: max-height 1s ease-out;
   transition: max-height 1s ease-out;
@@ -123,43 +123,30 @@
 }
 
 .containerListSong .containerList--Active {
-  max-height: 500px;
   -webkit-transition: max-height 1s ease-in;
   -o-transition: max-height 1s ease-in;
   transition: max-height 1s ease-in;
 }
 
-.containerListSong .containerList ul .element {
-  -webkit-transition: opacity 3s ease-in;
-  -o-transition: opacity 3s ease-in;
-  transition: opacity 3s ease-in;
-}
-
 .containerListSong .containerList ul .element a {
-  -webkit-transition: opacity 3s ease-in;
-  -o-transition: opacity 3s ease-in;
-  transition: opacity 3s ease-in;
   text-decoration: none;
   font-size: 10px;
-  color: black;
+  color: white;
 }
 
 .containerListSong .containerList ul .element a li {
   opacity: 0;
-  -webkit-transition: opacity 3s ease-in;
-  -o-transition: opacity 3s ease-in;
-  transition: opacity 3s ease-in;
-}
-
-.containerListSong .containerList ul .element--Active a {
-  color: white;
+  -webkit-transition: opacity .5s ease-in;
+  -o-transition: opacity .5s ease-in;
+  transition: opacity .5s ease-in;
+  padding: 1% 0;
 }
 
 .containerListSong .containerList ul .element--Active a li {
   opacity: 1;
-  -webkit-transition: opacity 3s ease-in;
-  -o-transition: opacity 3s ease-in;
-  transition: opacity 3s ease-in;
+  -webkit-transition: opacity .5s ease-in;
+  -o-transition: opacity .5s ease-in;
+  transition: opacity .5s ease-in;
 }
 
 .containerListSong__Button {

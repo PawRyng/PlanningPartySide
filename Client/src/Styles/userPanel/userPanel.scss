@@ -69,36 +69,33 @@
     flex-direction: row;
     .containerList{
         width: 70%;
-        max-height: 0px;
+        max-height: 13px;
         transition: max-height 1s ease-out;
         overflow: hidden;
         border-bottom: 5px solid white;
         border-radius: 5px;
 
         &--Active{
-            max-height: 500px;
             transition: max-height 1s ease-in;
         }
         ul{
         .element{
-            
-                transition: opacity 3s ease-in;
                 a{
-                    transition: opacity 3s ease-in;
                     li{
                         opacity: 0;
-                        transition: opacity 3s ease-in;
+                        transition: opacity .5s ease-in;
+                        padding: 1% 0;
                     }
                     text-decoration: none;
                     font-size: 10px;
-                    color: black;
+                    color: white;
                 }
                 &--Active{
                     a{
-                        color: white;
+                        
                         li{
                             opacity: 1;
-                            transition: opacity 3s ease-in;
+                            transition: opacity .5s ease-in;
                         }
                     }
                 }
