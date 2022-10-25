@@ -12,6 +12,7 @@ const path = require('path');
 const config = require('./config.json');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const { $where, findByIdAndUpdate } = require('./model/register');
 
 const ACCRESS_TOCKEN = config.JsonWebToken;
 
@@ -27,7 +28,6 @@ const authorisatiomMid = (req, res, next) => {
         if(err){
             return res.json({status:"No access", tocken:token});
         }
-        // console.log('autoryzacja')
         req.user = data;       
 
         next();
@@ -35,6 +35,8 @@ const authorisatiomMid = (req, res, next) => {
     })
 
 }
+
+
 
 
 
@@ -94,7 +96,6 @@ db.once('open', function (){
         
         try{
             const userData = await User.findById(id)
-            console.log(userData)
             userData ? res.json({status: "OK" , userData}) : res.json({status: "error"});
         }
         catch{
@@ -106,32 +107,147 @@ db.once('open', function (){
     });
 
     app.post("/searchData", async (req, res) => {
-        const data = await User.findById(req.body.id);
-        const datas = await User.find(date);
-        switch(req.body.type){
-            case "date":
-                res.json({result: data.date});
-            case "time":
-                res.json({result: data.time});
-            case "dates":
-                res.json({status: datas})
-                
+        const {id, type} = req.body;
 
+
+        const query = await User.findById(id, type)
+        
+        console.log(query)
+        
+        if(type == "dates"){
+            const datas = await User.find(date);
+            res.json({result: datas})
+        }
+        else{
+            res.json({result: query.length})
+            
         }
 
+
+
+        // const data = await User.findById(id);
+        // switch(req.body.type){
+        //     case "date":
+        //         res.json({result: data.date});
+        //     case "time":
+        //         res.json({result: data.time});
+        //     case "dates":
+        //         res.json({status: datas})
+        // }
+
     });
-    app.post("/SongAdd", authorisatiomMid, async (req, res) => {
-        const {IdUser, Title, Link} = req.body;
+
+    
+
+    app.post("/LoveSongAdd", authorisatiomMid, async (req, res) => {
+        const {IdUser, TitleNewSong, LinkNewSong} = req.body;
+
+        const {_id, LoveSong} = await User.findById(IdUser, "LoveSong")
+
+        let flag = false;
+        LoveSong.map(Song =>{
+
+            let {Title, Link} = Song
+            console.log(Title)
+
+            if(Title == TitleNewSong || flag){
+                flag = true;
+            } 
+            
+        })
+
+        if(flag){
+            res.json({status: "This song is in DB"})
+        }
+        else{
+            User.findByIdAndUpdate(IdUser, {$push: {LoveSong: [{
+                Title: TitleNewSong,
+                Link: LinkNewSong
+            }]}}, err => console.log(err))
+            const LoveSongs = await User.findById(IdUser, "LoveSong")
+            res.json({status: "OK", LoveSongs});
+        }
 
 
-        User.findByIdAndUpdate(IdUser, {$push: {LoveSong: [{Title,Link}]}}, err => console.log(err))
+    });
+    app.post("/BadSongAdd", authorisatiomMid, async (req, res) => {
+        const {IdUser, TitleNewSong, LinkNewSong} = req.body;
+
+        const {_id, BadSong} = await User.findById(IdUser, "BadSong")
+        let flag = false;
+        BadSong.map(Song =>{
+            
+            let {Title, Link} = Song
+            console.log(Title)
+            
+            if(Title == TitleNewSong || flag){
+                flag = true;
+            } 
+            
+        })
+        
+        if(flag){
+            res.json({status: "This song is in DB"})
+        }
+        else{
+            User.findByIdAndUpdate(IdUser, {$push: {BadSong: [{
+                Title: TitleNewSong,
+                Link: LinkNewSong
+            }]}}, err => console.log(err))
+            const BadSongs = await User.findById(IdUser, "BadSong")
+            res.json({status: "OK", BadSongs});
+        }
 
 
-        res.json({status: Title})        
     });
 
+    app.delete("/removeLoveSong", authorisatiomMid, async (req,res) =>{
+        const {IdUser, titleSong} = req.body;
+        let newArray = []
+        const LoveSongs = await User.findById(IdUser)
+        LoveSongs.LoveSong.filter(title => {
+            if(title.Title !== titleSong){
+                newArray.push(title)
+            }
+            
+        });
 
+        if(LoveSongs.LoveSong.length === newArray.length){
+            res.json({status:"This song is not in db"});
+        }
+        else{
+            User.findByIdAndUpdate(IdUser, {$set: {LoveSong : newArray}}, err =>{
+                err ? res.json({status:"Error in update array to db"}).status(500) : res.status(200).json({status:"OK"});
+            })
+        }
+                
+    
+        })
 
+        app.delete("/removeBadSong", authorisatiomMid, async (req,res) =>{
+            const {IdUser, titleSong} = req.body;
+            let newArray = []
+            const BadSongs = await User.findById(IdUser)
+            BadSongs.BadSong.filter(title => {
+                if(title.Title !== titleSong){
+                    newArray.push(title)
+                }
+                
+            });
+    
+            if(BadSongs.BadSong.length === newArray.length){
+                res.json({status:"This song is not in db"});
+            }
+            else{
+                User.findByIdAndUpdate(IdUser, {$set: {BadSong : newArray}}, err =>{
+                    err ? res.json({status:"Error in update array to db"}).status(500) : res.status(200).json({status:"OK"});
+                })
+            }
+                    
+        
+            })
+       
+    
 
 
 

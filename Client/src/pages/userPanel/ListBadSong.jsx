@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const List = ({loveSong, plusIcon, removeIcon}) => {
+const List = ({badSong, plusIcon, removeIcon}) => {
     
-    const [listMusic, setListMusic] = useState(loveSong);
+    const [listMusic, setListMusic] = useState(badSong);
     const [flag, setFlag] = useState(true);
     const navigate = useNavigate();
     
@@ -14,11 +14,10 @@ const List = ({loveSong, plusIcon, removeIcon}) => {
     const clickHendler = e =>{
         e.preventDefault();
         setFlag(!flag);
-            const containerListElement = document.querySelector(".containerList")
-            document.querySelector(".containerListSong__Button").classList.toggle("containerListSong__Button--Active");
-            containerListElement.classList.toggle("containerList--Active");
-            var childNodesList = document.querySelectorAll('ul')[0].childNodes;
-            console.log(childNodesList)
+            const containerListElement = document.querySelector(".containerBadList")
+            document.querySelector(".containerListBadSong__Button").classList.toggle("containerListBadSong__Button--Active");
+            containerListElement.classList.toggle("containerBadList--Active");
+            var childNodesList = document.getElementsByTagName('ul')[1].childNodes;
             flag ? containerListElement.style["max-height"] = `${100+(30 * childNodesList.length)}px` : containerListElement.style["max-height"] = `13px`
          
         
@@ -31,7 +30,7 @@ const List = ({loveSong, plusIcon, removeIcon}) => {
     const removeHendler = songTitle =>{
         
         window.location.reload();
-        fetch('http://localhost:3001/removeLoveSong',{
+        fetch('http://localhost:3001/removeBadSong',{
                     method:"DELETE",
                     headers: {
                         'Content-Type': 'application/json',
@@ -57,7 +56,7 @@ const List = ({loveSong, plusIcon, removeIcon}) => {
         
         console.log(songTitle)
     }
-    const items = loveSong.map((song, index) =>
+    const items = badSong.map((song, index) =>
         <div className="element" key={index}>
             <a href={song.Link} >
                 <li  >{song.Title}</li>
@@ -71,13 +70,13 @@ const List = ({loveSong, plusIcon, removeIcon}) => {
   
     return (<>
         
-        <div className="containerListSong">
-            <div className="containerList">
+        <div className="containerListBadSong">
+            <div className="containerBadList">
                 <ul>
                     {items.length > 0 ? items : <h2>Brak piosenek </h2> }
                 </ul>
             </div>
-            <div className="containerListSong__Button" >
+            <div className="containerListBadSong__Button" >
                 <img onClick = {clickHendler} src={plusIcon}/>
             </div>
 

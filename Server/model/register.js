@@ -12,13 +12,15 @@ const User = new Schema({
   type: {type:String, require: false},
   time: {type:String, require: false},
   LoveSong: [{
-    // _id:Number,
-    Title:String, 
-    Link: String}],
-    BadSong: [{
-      id:Number,
-      name:String, 
-      link: String}],
+    Title: {type: String, require:true}, 
+    Link: {type: String},
+    _id: false
+  }],
+  BadSong: [{
+    Title: {type: String, require:true}, 
+    Link: {type: String},
+    _id: false
+  }],
 }, {collection: 'registerShema'}
 );
 

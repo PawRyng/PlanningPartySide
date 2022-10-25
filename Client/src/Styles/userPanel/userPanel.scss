@@ -22,7 +22,7 @@
     }
 }
 
-//Song
+//Love Song
 .containerSong{
     display: flex;
     flex-direction: row;
@@ -80,15 +80,39 @@
         }
         ul{
         .element{
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            margin: 3% 0;
                 a{
                     li{
                         opacity: 0;
                         transition: opacity .5s ease-in;
-                        padding: 1% 0;
+                        padding: 1% 10px 1% 0;
                     }
                     text-decoration: none;
                     font-size: 10px;
                     color: white;
+                }
+                &__deleteIconContainer{
+                    background-color: white;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 100px;
+                    opacity: 0;
+                    transition: opacity 1s ease-in;
+                    cursor: pointer;
+                    img{
+                        width: 12px;
+                        height: 14px;
+                        opacity: 0;
+                        transition: opacity 1s ease-in;
+
+                    }
                 }
                 &--Active{
                     a{
@@ -96,6 +120,14 @@
                         li{
                             opacity: 1;
                             transition: opacity .5s ease-in;
+                        }
+                    }
+                    .element__deleteIconContainer{
+                        transition: opacity .7s ease-in;
+                        opacity: 1;
+                        img{
+                            transition: opacity .7s ease-in;
+                            opacity: 1;
                         }
                     }
                 }
@@ -121,8 +153,99 @@
     }
 }
 
+//Bad Song
+.containerListBadSong{
+    box-sizing: border-box;
+    padding: 0 1% 10% 5%;
+    // height: 25px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    .containerBadList{
+        width: 70%;
+        max-height: 13px;
+        transition: max-height 1s ease-out;
+        overflow: hidden;
+        border-bottom: 5px solid white;
+        border-radius: 5px;
 
+        &--Active{
+            transition: max-height 1s ease-in;
+        }
+        ul{
+        .element{
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            margin: 3% 0;
+                a{
+                    li{
+                        opacity: 0;
+                        transition: opacity .5s ease-in;
+                        padding: 1% 10px 1% 0;
+                    }
+                    text-decoration: none;
+                    font-size: 10px;
+                    color: white;
+                }
+                &__deleteIconContainer{
+                    background-color: white;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 100px;
+                    opacity: 0;
+                    transition: opacity 1s ease-in;
+                    cursor: pointer;
+                    img{
+                        width: 12px;
+                        height: 14px;
+                        opacity: 0;
+                        transition: opacity 1s ease-in;
 
+                    }
+                }
+                &--Active{
+                    a{
+                        
+                        li{
+                            opacity: 1;
+                            transition: opacity .5s ease-in;
+                        }
+                    }
+                    .element__deleteIconContainer{
+                        transition: opacity .7s ease-in;
+                        opacity: 1;
+                        img{
+                            transition: opacity .7s ease-in;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    &__Button{
+        width: 20%;
+        height: 25px;
+        position: relative;
+        transition: 1s;
+        &--Active{
+            transform: rotate(45deg);
+        }
+        img{
+            position: absolute;
+            top:-4px;
+            right: 0px;
+            transition: 1s;
+           
+        }
+    }
+}
 
 
 
