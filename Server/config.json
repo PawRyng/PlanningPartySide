@@ -1,5 +1,5 @@
 {
-    "db":"db",
-    "AdminPass":"rHuBlviotPsi6Du1",
+    "db":"mongodb+srv://Admin:j1vzLo0hhawJnaY0@cluster0.rg0ng.mongodb.net/?retryWrites=true&w=majority",
+    "AdminPass":"j1vzLo0hhawJnaY0",
     "JsonWebToken": "higasddhoigasfhaksnjbvn4ka2dfkhg3dhnmhjafnbvh43"
 }
